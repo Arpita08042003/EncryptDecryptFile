@@ -11,7 +11,8 @@ using namespace std;
 class PROCESSMAG{
     public:
         // PROCESSMAG();
-        vector<vector<char>>& divideIntoChunks(ifstream& inputFile);
+        vector<vector<char>>& divideIntoChunks(fstream& inputFile);
+        void changeFile(fstream& inputFile,vector<vector<char>>& output_chunks);
         // ~PROCESSMAG();
     private:
         vector<vector<char>> chunks;

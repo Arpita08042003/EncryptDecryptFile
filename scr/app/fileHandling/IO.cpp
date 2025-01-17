@@ -5,14 +5,14 @@
 using namespace std;
 
 IO::IO(const string &file_path){
-    usersFile.open(file_path,ios::in|ios::out|ios::binary);
+    usersFile.open(file_path,ios::in | ios::out | ios::binary);
 }
 
 bool IO::isFileOpen(){ 
     return usersFile.is_open();
 }
 
-ifstream& IO::getInputFile(){ 
+fstream& IO::getInputFile(){ 
     return usersFile;
 }
 

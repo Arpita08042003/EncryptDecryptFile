@@ -11,11 +11,11 @@ class IO{
     public:
         IO(const string &file_path);
         bool isFileOpen();
-        ifstream& getInputFile();
+        fstream& getInputFile();
         ~IO();
 
     private:
-        ifstream usersFile;
+        fstream usersFile;
 };
 
 #endif

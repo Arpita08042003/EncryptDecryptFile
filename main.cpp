@@ -14,14 +14,14 @@ int main(){
     bool encrypt;
     cout<<"for Encrypt press 1 and for decrypt press 0 ";
     cin>>encrypt;
-    if(IO.isFileOpen()){
+    if(IO.isFileOpen()){ 
         PROCESSMAG processMag;
-        ifstream& inputFile = IO.getInputFile();
-        vector<vector<char>>& chunks = processMag.divideIntoChunks(inputFile);
+        fstream& inputFile = IO.getInputFile();
+        auto& chunks = processMag.divideIntoChunks(inputFile);
         vector<vector<char>> output(chunks.size());
 
         EDECRYPT eDecrypt;
-        vector<thread> threads;
+        vector<thread> threads; 
 
         for(int i=0;i<chunks.size();++i){
             threads.emplace_back([&,i](){
@@ -39,8 +39,9 @@ int main(){
         for(auto &t:threads){
             if(t.joinable()) t.join();
         }
-      
-        
+
+        processMag.changeFile(inputFile,output);
+        inputFile.close();
     }else{
         cout<<"cant open file";
     }
